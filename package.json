@@ -1,0 +1,17 @@
+{
+  "name": "hapi-rest-exaple",
+  "version": "1.0.0",
+  "description": "hapi rest example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.2.0",
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.31.2"
+  }
+}
