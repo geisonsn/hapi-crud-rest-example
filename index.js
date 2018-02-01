@@ -3,18 +3,25 @@
 const Hapi = require('hapi'); 
 const Sequelize = require('sequelize'); 
 
-const sequelize = new Sequelize('hapiexample', 'root', '', { 
-        host: 'localhost', 
-          dialect: 'mysql', 
-          pool: { 
-                 max: 5, 
-                 min: 0, 
-                 acquire: 30000,
-                 idle: 1000
-             },
+const sequelize = new Sequelize('hapiexample', 'root', 'root', { 
+    host: 'localhost', 
+    dialect: 'mysql', 
+    pool: { 
+        max: 5, 
+        min: 0, 
+        acquire: 30000,
+        idle: 1000
+    },
     define : {
             timestamps: false
-        }
+    }
+});
+
+sequelize.authenticate().then(() => {
+    console.log('Connection has been stablished successfully.');
+})
+.catch((error) => {
+    console.log('Unable to connect to the database: ', error);
 });
 
 const User = sequelize.define('user', {
